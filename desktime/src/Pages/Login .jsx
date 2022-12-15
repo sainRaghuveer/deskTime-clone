@@ -22,7 +22,7 @@ import {
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+            <Heading fontSize={'4xl'}>Log in to DivineTime</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
               to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
             </Text>
@@ -50,10 +50,10 @@ import {
                   <Link color={'blue.400'}>Forgot password?</Link>
                 </Stack>
                 <Button
-                  bg={'blue.400'}
+                  bg={'#4ea819'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: '#447c28',
                   }}>
                   Sign in
                 </Button>

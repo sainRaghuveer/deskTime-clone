@@ -14,10 +14,12 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
-    NavItem
+    Image
   } from '@chakra-ui/react';
   import Login from '../Pages/Login ';
   import { Link as RouterLink } from 'react-router-dom';
+  
+
   import {
     HamburgerIcon,
     CloseIcon,
@@ -29,10 +31,12 @@ import {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Box>
+      <Box boxShadow={ "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"} position={"-webkit-sticky"} pos={"sticky"} top={0} bg={useColorModeValue('white', 'gray.800')}>
         <Flex
-          bg={useColorModeValue('white', 'gray.800')}
-          color={useColorModeValue('gray.600', 'white')}
+          pos={"relative"}
+          position={"static"}
+          // bg={useColorModeValue('white', 'gray.800')}
+          // color={useColorModeValue('gray.600', 'white')}
           minH={'60px'}
           py={{ base: 2 }}
           px={{ base: 4 }}
@@ -40,9 +44,10 @@ import {
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.900')}
           align={'center'}
-          width={"70%"}
+          width={"75%"}
           margin={"auto"}
           padding={"30px"}
+          
           >
           <Flex
             flex={{ base: 1, md: 'auto' }}
@@ -58,11 +63,14 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+          {/* <img src="https://i.ibb.co/RS75TMv/Untitled-design.png" alt="Untitled-design" border="0">*/}
+            <RouterLink to="/"><Image src="https://i.ibb.co/RS75TMv/Untitled-design.png" boxSize={"38px"}></Image></RouterLink>
             <Text
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
+              fontSize={"25px"}
               color={useColorModeValue('gray.800', 'white')}>
-              Logo
+              <RouterLink to="/">DivineTime</RouterLink>
             </Text>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -258,7 +266,7 @@ import {
   
   const NAV_ITEMS = [
     {
-      label: 'Inspiration',
+      label: 'Demo',
       children: [
         {
           label: 'Explore Design Work',
@@ -273,7 +281,7 @@ import {
       ],
     },
     {
-      label: 'Find Work',
+      label: 'Features',
       children: [
         {
           label: 'Job Board',
@@ -288,11 +296,19 @@ import {
       ],
     },
     {
-      label: 'Learn Design',
+      label: 'Pricing',
       href: '#',
     },
     {
-      label: 'Hire Designers',
+      label: 'About us',
+      href: '#',
+    },
+    {
+      label: 'FAQ',
+      href: '#',
+    },
+    {
+      label: 'Blog',
       href: '#',
     },
   ];

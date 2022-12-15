@@ -9,11 +9,12 @@ import {
   VisuallyHidden,
   chakra,
   useColorModeValue,
+  Image
 } from '@chakra-ui/react';
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 
-import AppStoreBadge from '@/components/AppStoreBadge';
-import PlayStoreBadge from '@/components/PlayStoreBadge';
+// import AppStoreBadge from '@/components/AppStoreBadge';
+// import PlayStoreBadge from '@/components/PlayStoreBadge';
 
 const ListHeader = ({ children }) => {
   return (
@@ -82,8 +83,10 @@ const Footer=()=> {
 
           <Stack align={'flex-start'}>
             <ListHeader>Install App</ListHeader>
-            <AppStoreBadge />
-            <PlayStoreBadge />
+            {/* <AppStoreBadge />
+            <PlayStoreBadge /> */}
+            <Image src="https://lh3.googleusercontent.com/RyLoNcOmb91IxHIP9NWfC82chbsCsT-5R25efns1FmuM8xz6znE4CRjIEBosZ1FH2xG1UqH6Axyp-vPFnm4sazbrsaB-S0QT_cN9uWU9UKoSQYCjYQ=s0"></Image>
+            <Image src='https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg' w={"60%"}></Image>
           </Stack>
         </SimpleGrid>
       </Container>
