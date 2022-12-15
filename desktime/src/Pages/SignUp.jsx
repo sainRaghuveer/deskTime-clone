@@ -16,6 +16,7 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import {Link as RouterLink} from "react-router-dom"
   
   export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +30,7 @@ import {
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
             <Heading fontSize={'4xl'} textAlign={'center'}>
-              Sign up
+              Sign up for a FREE DivineTime trial
             </Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
               to enjoy all of our cool features ✌️
@@ -88,7 +89,7 @@ import {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <RouterLink to="/login" color={'blue.400'}>Login</RouterLink>
                 </Text>
               </Stack>
             </Stack>
