@@ -11,10 +11,13 @@ import {
     Heading,
     Text,
     useColorModeValue,
+    Container,
   } from '@chakra-ui/react';
+import Footer from '../Components/Footer';
   
   export default function Login() {
     return (
+      <Container>
       <Flex
         minH={'100vh'}
         align={'center'}
@@ -61,6 +64,8 @@ import {
             </Stack>
           </Box>
         </Stack>
+        
       </Flex>
+      </Container>
     );
   }

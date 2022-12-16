@@ -10,7 +10,10 @@ import {
     Icon,
     useColorModeValue,
     Box,
-    AspectRatio
+    AspectRatio,
+    Input,
+    Button,
+    HStack
   } from '@chakra-ui/react';
   import {
     IoAnalyticsSharp,
@@ -18,34 +21,28 @@ import {
     IoSearchSharp,
   } from 'react-icons/io5';
   import { ReactElement } from 'react';
+  import {Link as RouterLink} from "react-router-dom"
 import Footer from '../Components/Footer';
 import HomeTestimonial from '../Contents/HomeTestimonial';
-  
-  
-  const Feature = ({ text, icon, iconBg }) => {
-    return (
-      <Stack direction={'row'} align={'center'}>
-        <Flex
-          w={8}
-          h={8}
-          align={'center'}
-          justify={'center'}
-          rounded={'full'}
-          bg={iconBg}>
-          {icon}
-        </Flex>
-        <Text fontWeight={600}>{text}</Text>
-      </Stack>
-    );
-  };
+import {IoIosRocket} from "react-icons/io"
+import {BsFileBarGraph} from "react-icons/bs"
+import {MdTask} from "react-icons/md"
+import {AiFillFire} from "react-icons/ai"
+import HomeAccordian from '../Contents/HomeAccordian';
+import HomeContent from '../Contents/HomeContent';
+import HomeInfo from '../Contents/HomeInfo';
+import HomeWorkLife from '../Contents/HomeWorkLife';
+import HomeGreen from '../Contents/HomeGreen';
+
   
   export default function Home() {
     return (
-      <Container maxW={'6xl'} py={12}>
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+      <>
+      <Container maxW={'6xl'} py={12} textAlign={"left"} marginBottom={"30px"} width={"90%"}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} marginBottom={"40px"}>
           <Stack spacing={5}>
             <Heading>The ultimate all-in-one time tracker for your business</Heading>
-            <Text color={'gray.500'} fontSize={'lg'}>
+            <Text color={'#475056'} fontSize={'18px'}>
             A time tracker with additional workforce management features that will help you develop a high-performing team that smashes goals every time.
             </Text>
             <Stack
@@ -55,42 +52,111 @@ import HomeTestimonial from '../Contents/HomeTestimonial';
                   borderColor={useColorModeValue('gray.100', 'gray.700')}
                 />
               }>
-              <Feature
-                icon={
-                  <Icon as={IoAnalyticsSharp} color={'yellow.500'} w={5} h={5} />
-                }
-                iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-                text={'Business Planning'}
-              />
-              <Feature
-                icon={<Icon as={IoLogoBitcoin} color={'green.500'} w={5} h={5} />}
-                iconBg={useColorModeValue('green.100', 'green.900')}
-                text={'Financial Planning'}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />
-                }
-                iconBg={useColorModeValue('purple.100', 'purple.900')}
-                text={'Market Analysis'}
-              />
+                <Box>
+                <Input w={"45%"} placeholder={"Your Work Email"}/>
+                <Button w={"45%"} backgroundColor={"#4ea819"} color={"white"} fontSize={"20px"}>Start Free Trial</Button>
+                </Box>
+              <Text color={'#475056'} fontSize={'18px'} lineHeight={"8px"}>Try free for 14 days. No credit card required.</Text>
+              <Text color={'#475056'} fontSize={'18px'}>By signing up, you agree to our <RouterLink to="#">terms</RouterLink>  and <RouterLink to="#">privacy policy</RouterLink>.</Text>
+
             </Stack>
           </Stack>
           <Flex>
-          <Box>
-          <AspectRatio maxW='560px' ratio={1}>
-            <iframe
-              title='naruto'
-              src='https://www.youtube.com/embed/QhBnZ6NPOY0'
-              allowFullScreen
-            />
-          </AspectRatio>
+          <Box width={{base:"100%", md:"70%"}}>
+          <iframe w={{base:"50%", md:"60%"}} width="560" height="315" src="https://www.youtube.com/embed/sgmDvqlSMF4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </Box>
           </Flex>
         </SimpleGrid>
-        <HomeTestimonial/>
-        <Footer/>
+        <SimpleGrid display={"flex"} justifyContent={"center"} alignItems={"center"} width={"80%"} margin={"auto"}columns={{ base: 1, md: 2 }}>
+          <Stack>
+            <HStack columns={{ base: 1, md: 2 }} direction={{base: "row", md: "column"}}>
+              <Box>
+          <Image src='https://desktime.com/static/web/clients/customer-sixt-logo-white.svg'></Image>
+          </Box>
+          <Box>
+          <Image src='https://desktime.com/static/web/clients/customer-mapon-logo-white.svg'></Image>
+          </Box>
+          <Box>
+          <Image src='https://desktime.com/static/web/clients/customer-montway-logo-white.svg'></Image>
+          </Box>
+          <Box>
+          <Image src='https://desktime.com/static/web/clients/customer-onthemap-logo-white.svg'></Image>
+          </Box>
+          <Box>
+          <Image src='https://desktime.com/static/web/clients/customer-printful-logo-white.svg'></Image>
+          </Box>
+          </HStack>
+          </Stack>
+        </SimpleGrid>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} marginBottom={"40px"}>
+          <Stack spacing={5}>
+            <Heading>Use time tracker software to boost productivity by 30%</Heading>
+            <Text color={'#475056'} fontSize={'18px'}>
+            There are numerous ways how DivineTime improves the day-to-day work for managers and employees alike. Here are just a few reasons why the DivineTime time tracker is a great choice for your team.
+            </Text>
+            <Stack
+              spacing={4}
+              divider={
+                <StackDivider
+                  borderColor={useColorModeValue('gray.100', 'gray.700')}
+                />
+              }>
+               <Box marginTop={"40px"} display={"grid"} gridTemplateColumns={"repeat(2, 1fr)"} gap={"50px"} columns={{ base: 1, md: 2 }} >
+                <Box>
+                <HStack>
+                <IoIosRocket color={'green'}/>
+                <Heading fontSize={"19px"}> Skyrocket effectiveness</Heading>
+                </HStack>
+                  <Text fontSize={"16px"}>
+                  Know who's doing what and how it's going all the while eliminating distractions.
+                  </Text>
+                </Box>
+                <Box>
+                  <HStack>
+                    <BsFileBarGraph color={'green'}/>
+                <Heading fontSize={"19px"}>Minimize business losses</Heading>
+                </HStack>
+                <Text fontSize={"16px"}>
+                Get precise insights into projects to determine profitability and allocate resources.
+                  </Text>
+                </Box>
+                <Box>
+                  <HStack>
+                    <MdTask color={'green'}/>
+                <Heading fontSize={"19px"}>Automate team management</Heading>
+                </HStack>
+                <Text fontSize={"16px"}>
+                Organize shifts, absences, and booking-related questions all in one place.
+                  </Text>
+                </Box>
+                <Box>
+                  <HStack>
+                  <AiFillFire color={'green'}/>
+                <Heading fontSize={"19px"}>Avoid burnout</Heading>
+                </HStack>
+                <Text fontSize={"16px"}>
+                Take care of your team and eliminate overworking with break reminders and private time.
+                  </Text>
+                </Box>
+               </Box>
+            </Stack>
+          </Stack>
+          <Flex marginLeft={"100px"}>
+          <Box>
+          <Image src='https://desktime.com/static/web/new-homepage/boost-productivity/boost-productivity.webp'></Image>
+          </Box>
+          </Flex>
+        </SimpleGrid>
+        
       </Container>
+      <HomeContent/>
+      <HomeTestimonial/>
+      <HomeWorkLife/>
+      <HomeInfo/>
+      <HomeAccordian/>
+      <HomeGreen/>
+      </>
+      
     );
   }
 
