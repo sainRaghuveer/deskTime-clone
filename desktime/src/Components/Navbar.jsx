@@ -31,7 +31,7 @@ import {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Box boxShadow={ "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"} position={"-webkit-sticky"} pos={"sticky"} top={0} bg={useColorModeValue('white', 'gray.800')}>
+      <Box zIndex={"100"} boxShadow={ "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"} position={"-webkit-sticky"} pos={"sticky"} top={0} bg={useColorModeValue('white', 'gray.800')}>
         <Flex
           pos={"relative"}
           position={"static"}

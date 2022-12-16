@@ -41,62 +41,64 @@ import {ImOffice} from "react-icons/im"
     );
   };
   
-  export default function HomeContent() {
+  export default function HomeWorkLife() {
     return (
-      <Container maxW={'6xl'} py={12} backgroundColor={"#eceded"}>
-        <Heading marginTop={"20px"} margin={"auto"} width={"70%"} textAlign={"center"}>A universal platform for running anything from small businesses to large enterprises</Heading>
-        <Text marginBottom={"20px"} margin={"auto"} width={"60%"} textAlign={"center"}>From a powerful time tracker to project management, human resource planning, and running an office. Everything is fully customizable and can be turned on and off for the whole company or specific users.</Text>
+      <Container maxW={'6xl'} py={12} marginTop={"-100px"}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} marginTop={"30px"}>
+        <Flex marginTop={"100px"}>
+            <Image
+            w={"500px"}
+            h={"600px"}
+              rounded={'md'}
+              alt={'feature image'}
+              src={
+                'https://desktime.com/static/web/new-homepage/seamless-workflow/seamless-workflow.webp'
+              }
+              objectFit={'cover'}
+            />
+          </Flex>
           <Stack spacing={4}>
           <Box marginTop={"40px"}  columns={{ base: 1, md: 2 }} lineHeight={"30px"} textAlign={"left"}>
+            <Heading>A seamless workflow and healthy work-life balance for every employee</Heading>
                 <Box >
                 <HStack>
                 <BiTime color={'green'}/>
-                <Heading fontSize={"19px"}> No more manual time trackers</Heading>
+                <Heading fontSize={"19px"}>Flexible schedule</Heading>
                 </HStack>
                   <Text fontSize={"16px"} marginLeft={"25px"}>
-                  Fully automatic start and end times, no manual entry, and no human error – the automatic time tracker starts up as soon as you open the computer and stops when you close it.
+                  Time tracking is proof-of-work and DeskTime's time tracker gives you just that – you can plan your schedule independently, while your manager can simply follow your progress no matter where you are and when you choose to work.
                   </Text>
                 </Box>
                 <Box marginTop={"20px"}>
                   <HStack>
                     <SiWheniwork color={'green'}/>
-                <Heading fontSize={"19px"}>Oversee work progress</Heading>
+                <Heading fontSize={"19px"}>Regular break reminders</Heading>
                 </HStack>
                 <Text fontSize={"16px"} marginLeft={"25px"}>
-                With URL and document title tracking it's easy to always be informed about your team's overall progress and habits during work hours.
+                Our time tracker uses the Pomodoro timer that will keep a cautious eye on your workload and remind you to take regular breaks so you don't lose focus all the while maintaining healthy habits and mental well-being.
                   </Text>
                 </Box>
                 <Box marginTop={"20px"}>
                   <HStack>
                     <AiOutlineTool color={'green'}/>
-                <Heading fontSize={"19px"}>Optimize your resources</Heading>
+                <Heading fontSize={"19px"}>Private time</Heading>
                 </HStack>
                 <Text fontSize={"16px"} marginLeft={"25px"}>
-                Estimate project costs, assign hourly rates, issue invoices, and control expenses. Project management is easy when you have a birdseye view of all ongoing processes.
+                DeskTime's Private time feature disables the website and time tracker for when you have to take care of non-work-related tasks during office hours. Employees can feel safe knowing their privacy is protected.
                   </Text>
                 </Box>
                 <Box marginTop={"20px"}>
                   <HStack>
                   <ImOffice color={'green'}/>
-                <Heading fontSize={"19px"}>Run your office smoothly</Heading>
+                <Heading fontSize={"19px"}>No more unbilled hours</Heading>
                 </HStack>
                 <Text fontSize={"16px"} marginLeft={"25px"}>
-                DeskTime isn't just a time tracker. You can assign shifts and oversee absences, stay informed about remote workers and run a hybrid office all on one platform.
+                Employee time is pure gold when it comes to resource planning. DeskTime's time tracker even lets you add time spent offline like in meetings, brainstorms, or on work calls so no billable hours go unnoticed.
                   </Text>
                 </Box>
                </Box>
+               <Text>All the features can be turned on and off to suit eveyone's needs</Text>
           </Stack>
-          <Flex>
-            <Image
-              rounded={'md'}
-              alt={'feature image'}
-              src={
-                'https://desktime.com/static/web/new-homepage/universal-platform/universal-platform.webp'
-              }
-              objectFit={'cover'}
-            />
-          </Flex>
         </SimpleGrid>
       </Container>
     );

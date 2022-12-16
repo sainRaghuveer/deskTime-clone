@@ -51,8 +51,9 @@ export default class HomeTestimonial extends Component {
       ]
     };
     return (
+        <Container maxW={"6xl"}>
       <div>
-        <Heading w={"70%"} margin={"auto"}> More than 18 000 companies worldwide trust DeskTime with their business </Heading>
+        <Heading w={"70%"} margin={"auto"}> More than 18000 companies worldwide trust DivineTime with their business </Heading>
         <Slider {...settings}>
           <div>
             <Box>
@@ -63,7 +64,7 @@ export default class HomeTestimonial extends Component {
           <Testimonial>
             <TestimonialContent>
               <TestimonialText>
-                With DeskTime I am able to see how productive my employees are and how much work time they spend on work time they spend on work-related application- that's something many others time tracking software don't have.
+                With DivineTime I am able to see how productive my employees are and how much work time they spend on work time they spend on work-related application- that's something many others time tracking software don't have.
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
@@ -87,7 +88,7 @@ export default class HomeTestimonial extends Component {
           <Testimonial>
             <TestimonialContent>
               <TestimonialText>
-                We started using DeskTime for our whole team when we moved from office to Work From Home. DeskTime helped us to form few work from home policies for our teams to work effectively. In the very first week, we started seeing a rise in overall productivity and accountability.
+                We started using DivineTime for our whole team when we moved from office to Work From Home. DeskTime helped us to form few work from home policies for our teams to work effectively. In the very first week, we started seeing a rise in overall productivity and accountability.
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
@@ -256,6 +257,8 @@ export default class HomeTestimonial extends Component {
           </div>
         </Slider>
       </div>
+
+      </Container>
     );
   }
 }
