@@ -33,11 +33,13 @@ import HomeContent from '../Contents/HomeContent';
 import HomeInfo from '../Contents/HomeInfo';
 import HomeWorkLife from '../Contents/HomeWorkLife';
 import HomeGreen from '../Contents/HomeGreen';
+import Navbar from "../Components/Navbar"
 
   
   export default function Home() {
     return (
       <>
+      <Navbar/>
       <Container maxW={'6xl'} py={12} textAlign={"left"} marginBottom={"30px"} width={"90%"}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} marginBottom={"40px"}>
           <Stack spacing={5}>
@@ -155,6 +157,7 @@ import HomeGreen from '../Contents/HomeGreen';
       <HomeInfo/>
       <HomeAccordian/>
       <HomeGreen/>
+      <Footer/>
       </>
       
     );
