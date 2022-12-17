@@ -3,6 +3,7 @@ import { useState } from "react";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login ";
 import SignUp from "../Pages/SignUp";
+import SidebarWithHeader from "../Pages/MainPage";
 
 const AllRoutes=()=>{
     return(
@@ -11,6 +12,7 @@ const AllRoutes=()=>{
                 <Route path="/" element={<HomePage/>}></Route>
                 <Route path="/login" element={<Login/>}></Route>
                 <Route path="/signup" element={<SignUp/>}></Route>
+                <Route path="/main" element={<SidebarWithHeader/>}></Route>
             </Routes>
         </div>
     )
