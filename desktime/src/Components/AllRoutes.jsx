@@ -4,15 +4,17 @@ import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login ";
 import SignUp from "../Pages/SignUp";
 import SidebarWithHeader from "../Pages/MainPage";
+import Projects from "../Pages/Projects";
 
 const AllRoutes=()=>{
     return(
         <div>
             <Routes>
-                <Route path="/" element={<HomePage/>}></Route>
-                <Route path="/login" element={<Login/>}></Route>
-                <Route path="/signup" element={<SignUp/>}></Route>
-                <Route path="/main" element={<SidebarWithHeader/>}></Route>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/main" element={<SidebarWithHeader/>}/>
+                <Route path="/projects" element={<Projects/>}/>
             </Routes>
         </div>
     )

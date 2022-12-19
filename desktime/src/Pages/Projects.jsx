@@ -58,10 +58,12 @@ import {ProductiveApp,UnProductiveApp,NeutralApp,ProductiveGraph,ProductiveCateg
 import {GrPowerReset} from "react-icons/gr"
 import MainDrawer from '../Components/MainDrawer';
 import {Link as RouterLink} from "react-router-dom"
+import { useReducer } from "react";
+
 
 const LinkItems = [
-  { name:<RouterLink to="/main"> 'My DivineTime'</RouterLink>, icon: FaDesktop },
-  { name:<RouterLink to="/projects"> 'Projects'</RouterLink>, icon: GrProjects },
+  { name: <RouterLink to="/main"> 'My DivineTime'</RouterLink>, icon: FaDesktop },
+  { name: 'Projects', icon: GrProjects },
   { name: 'Work Schedules', icon: AiFillSchedule },
   { name: 'Booking', icon: TbBrandBooking },
   { name: 'Absence Calendar', icon: SlCalender },
@@ -70,7 +72,7 @@ const LinkItems = [
   { name: 'Settings', icon: FiSettings }
 ];
 
-export default function SidebarWithHeader({
+export default function Projects({
   children,
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -272,10 +274,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
     }
     </Grid>
     <ProductiveGraph/>
-    <ProductiveApp/>
+    {/* <ProductiveApp/>
     <UnProductiveApp/>
     <NeutralApp/>
-    <ProductiveCategories/>
+    <ProductiveCategories/> */}
     <MainPageFooter/>
     <Box
     border={"1px solid black"}
@@ -295,7 +297,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
             <ListItem>
                 {/* <ListIcon color={"#5fb92a"} as={FaPlay}></ListIcon> */}
                 <Timer />
-                <MainDrawer/>
+                <Todo/>
             </ListItem>
         </List>
     </Box>
@@ -309,10 +311,6 @@ const data=[
     {title:"LEFT TIME",time:"-",unit:"",details:"MORE DETAILS"},
     {title:"PRODUCTIVE TIME",time:0,unit:"s",details:"MORE DETAILS"},
     {title:"DESK TIME",time:0,unit:"s",details:"MORE DETAILS"},
-    {title:"TIME AT WORK",time:0,unit:"s",details:"MORE DETAILS"},
-    {title:"UNPRODUCTIVE TIME",time:0,unit:"s",details:"MORE DETAILS"},
-    {title:"EFFECTIVENESS",time:0,unit:"%",details:"MORE DETAILS"},
-    {title:"PRODUCTIVITY",time:0,unit:"%",details:"MORE DETAILS"}
 ]
 
 
@@ -383,3 +381,65 @@ const fixTimeString = (time) => {
   };
 
 export {Timer}
+
+
+// import AddTodo from "./AddTodo";
+
+const addTodo = (payload) => ({
+  type: "ADD_TODO",
+  payload
+});
+
+const deleteTodo = (payload) => ({
+  type: "DELETE_TODO",
+  payload
+});
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TODO": {
+      return [...state, action.payload];
+    }
+    case "DELETE_TODO": {
+      return state.filter((todo) => todo.id !== action.payload);
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+function Todo() {
+  //todo list
+  const [state, dispatch] = useReducer(reducer, []);
+
+  const handleAddTodo = (text) => {
+    const newTodo = {
+      id: Math.random() + Date.now() + text,
+      title: text,
+      status: false
+    };
+    //
+    dispatch(addTodo(newTodo));
+  };
+
+  const handleDelete = (id) => {
+    dispatch(deleteTodo(id));
+  };
+
+  return (
+    <>
+      <MainDrawer handleAddTodo={handleAddTodo} />
+      <div>
+        {state.map((todo) => (
+          <div>
+            <li key={todo.id}> {todo.title}</li>
+            <button onClick={() => handleDelete(todo.id)}>DELETE</button>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export  {Todo};

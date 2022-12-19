@@ -66,8 +66,8 @@ import Navbar from "../Components/Navbar"
             </Stack>
           </Stack>
           <Flex>
-          <Box width={{base:"100%", md:"70%"}}>
-          <iframe w={{base:"50%", md:"60%"}} width="560" height="315" src="https://www.youtube.com/embed/sgmDvqlSMF4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <Box width={["50%","50%","100%"]}>
+          <iframe w={["50%","50%","100%"]} width="560" height="315" src="https://www.youtube.com/embed/sgmDvqlSMF4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </Box>
           </Flex>
         </SimpleGrid>

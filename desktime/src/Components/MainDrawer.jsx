@@ -19,12 +19,14 @@ import {
     useDisclosure
   } from '@chakra-ui/react'
 
- 
+  import { useState } from "react";
 import {React,useRef} from "react"
 import { AddIcon } from '@chakra-ui/icons'
 import { Timer } from '../Pages/MainPage'
-  function MainDrawer() {
+  function MainDrawer({ handleAddTodo }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [text, setText] = useState("");
+
     
     return (
       <>
@@ -62,6 +64,9 @@ import { Timer } from '../Pages/MainPage'
                     // ref={firstField}
                     id='project'
                     placeholder='Project'
+                    type="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
                   />
                 </Box>
                 <Box>
@@ -105,7 +110,7 @@ import { Timer } from '../Pages/MainPage'
               <Button bg={"red"} variant='outline' mr={3} onClick={onClose}>
                 DELETE
               </Button>
-              <Button colorScheme='blue' bg={"#4ea819"}>UPDATE</Button>
+              <Button colorScheme='blue' bg={"#4ea819"} onClick={() => handleAddTodo(text)}>UPDATE</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
@@ -114,3 +119,23 @@ import { Timer } from '../Pages/MainPage'
   }
 
   export default MainDrawer;
+
+
+
+// const AddTodo = ({ handleAddTodo }) => {
+// //   const [text, setText] = useState("");
+
+//   return (
+//     <div>
+//       <input
+//         type="text"
+//         value={text}
+//         placeholder="ADD TODO"
+//         onChange={(e) => setText(e.target.value)}
+//       />
+//       <button onClick={() => handleAddTodo(text)}>ADD TODO</button>
+//     </div>
+//   );
+// };
+
+// export {AddTodo};
