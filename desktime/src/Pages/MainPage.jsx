@@ -21,7 +21,15 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  Image
+  Image,
+  Heading,
+  Input,
+  Grid,
+  GridItem,
+  Button,
+  List,
+  ListItem,
+  ListIcon
 } from '@chakra-ui/react';
 import {
   FiHome,
@@ -33,18 +41,31 @@ import {
   FiBell,
   FiChevronDown,
 } from 'react-icons/fi';
+import {FaDesktop, FaPlay, FaStop} from "react-icons/fa"
+import {GrProjects} from "react-icons/gr"
+import {AiFillSchedule} from "react-icons/ai"
+import {TbBrandBooking} from "react-icons/tb"
+import {SlCalender} from "react-icons/sl"
+import {GoReport} from "react-icons/go"
+import {FaFileExport} from "react-icons/fa"
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
-import Footer from '../Components/Footer';
 import SkeletonContent from '../Components/Skeleton';
-
-
+import MainPageFooter from '../Components/MainPageFooter';
+import Cards from '../Components/Cards';
+import { useEffect, useRef, useState } from "react";
+import {ProductiveApp,UnProductiveApp,NeutralApp,ProductiveGraph,ProductiveCategories} from '../Contents/MainProductiveApp';
+import {GrPowerReset} from "react-icons/gr"
+import MainDrawer from '../Components/MainDrawer';
 const LinkItems = [
-  { name: 'Home', icon: FiHome },
-  { name: 'Trending', icon: FiTrendingUp },
-  { name: 'Explore', icon: FiCompass },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'My DivineTime', icon: FaDesktop },
+  { name: 'Projects', icon: GrProjects },
+  { name: 'Work Schedules', icon: AiFillSchedule },
+  { name: 'Booking', icon: TbBrandBooking },
+  { name: 'Absence Calendar', icon: SlCalender },
+  { name: 'Reports', icon: GoReport },
+  { name: 'Exports', icon: FaFileExport },
+  { name: 'Settings', icon: FiSettings }
 ];
 
 export default function SidebarWithHeader({
@@ -77,7 +98,6 @@ export default function SidebarWithHeader({
       </Box>
       
     </Box>
-    <Footer/>
     {/* <SkeletonContent/> */}
     </>
   );
@@ -88,7 +108,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
     <Box
     bg={"#262c30"}
       transition="3s ease"
-      color={"white"}
+      color={"gray"}
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w={{ base: 'full', md: 60 }}
@@ -97,7 +117,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
       <Image src="https://i.ibb.co/0t5G6JR/Untitled-design-removebg-preview.png" alt="Untitled-design-removebg-preview" border="0" boxSize={"40px"}/>
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+        <Text color={"white"} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
         DivineTime
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
@@ -147,7 +167,11 @@ const NavItem = ({ icon, children, ...rest }) => {
 
 const MobileNav = ({ onOpen, ...rest }) => {
   return (
+    <>
+    
     <Flex
+    position={"-webkit-sticky"} pos={"sticky"} top={0} 
+    zIndex={"100"}
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 4 }}
       height="20"
@@ -157,6 +181,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       {...rest}>
+        
       <IconButton
         display={{ base: 'flex', md: 'none' }}
         onClick={onOpen}
@@ -164,22 +189,23 @@ const MobileNav = ({ onOpen, ...rest }) => {
         aria-label="open menu"
         icon={<FiMenu />}
       />
-
-      <Text
-        display={{ base: 'flex', md: 'none' }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold">
-        Logo
-      </Text>
+      
+    <Image src="https://i.ibb.co/0t5G6JR/Untitled-design-removebg-preview.png" alt="Untitled-design-removebg-preview" border="0" boxSize={"40px"}/>
+        <Text color={"white"} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+        DivineTime
+        </Text>
 
       <HStack spacing={{ base: '0', md: '6' }}>
+            <Box> 
+                <Input placeholder='Search'/>
+            </Box>
         <IconButton
           size="lg"
           variant="ghost"
           aria-label="open menu"
           icon={<FiBell />}
         />
+        
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
@@ -190,7 +216,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <Avatar
                   size={'sm'}
                   src={
-                    'https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                    'https://avatars.githubusercontent.com/u/112657812?v=4'
                   }
                 />
                 <VStack
@@ -198,9 +224,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   alignItems="flex-start"
                   spacing="1px"
                   ml="2">
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">Raghuveer Sain</Text>
                   <Text fontSize="xs" color="gray.600">
-                    Admin
+                    Raghuveer Sain Company
                   </Text>
                 </VStack>
                 <Box display={{ base: 'none', md: 'flex' }}>
@@ -221,5 +247,137 @@ const MobileNav = ({ onOpen, ...rest }) => {
         </Flex>
       </HStack>
     </Flex>
+    <Grid
+    templateColumns={{base:"repeat(1, 1fr)",md:"repeat(2, 1fr)",xl:"repeat(3, 1fr)","2xl":"repeat(4, 1fr)"}} gap={2}
+    ml={{ base: 0, md: 60 }}
+    px={{ base: 4, md: 4 }}
+    justifyContent={{ base: 'space-between', md: 'flex-end' }}
+    backgroundImage={"https://desktime.com/static/app/employee/employee-empty-arrival-time.svg"}
+    backgroundRepeat="none"
+    >{
+        data?.map((el)=>{
+            return(
+                <GridItem key={el.title}>
+                    {<Cards
+                    title={el.title}
+                    time={el.time}
+                    unit={el.unit}
+                    details={el.details}
+                    />}
+                </GridItem>
+            )
+        })
+    }
+    </Grid>
+    <ProductiveGraph/>
+    <ProductiveApp/>
+    <UnProductiveApp/>
+    <NeutralApp/>
+    <ProductiveCategories/>
+    <MainPageFooter/>
+    <Box
+    border={"1px solid black"}
+    borderRadius={"10px"}
+    w={"170px"}
+    height={"110px"}
+    bg={"white"}
+    pos={"fixed"}
+    left={"30px"}
+    bottom={"60px"}
+    textAlign={"center"}
+    display={"flex"}
+    justifyContent={"center"}
+    alignItems={"center"}
+    >
+        <List>
+            <ListItem>
+                {/* <ListIcon color={"#5fb92a"} as={FaPlay}></ListIcon> */}
+                <Timer />
+                <MainDrawer/>
+            </ListItem>
+        </List>
+    </Box>
+    </>
   );
 };
+
+
+const data=[
+    {title:"ARRIVAL TIME",time:"-",unit:"",details:"MORE DETAILS"},
+    {title:"LEFT TIME",time:"-",unit:"",details:"MORE DETAILS"},
+    {title:"PRODUCTIVE TIME",time:0,unit:"s",details:"MORE DETAILS"},
+    {title:"DESK TIME",time:0,unit:"s",details:"MORE DETAILS"},
+    {title:"TIME AT WORK",time:0,unit:"s",details:"MORE DETAILS"},
+    {title:"UNPRODUCTIVE TIME",time:0,unit:"s",details:"MORE DETAILS"},
+    {title:"EFFECTIVENESS",time:0,unit:"%",details:"MORE DETAILS"},
+    {title:"PRODUCTIVITY",time:0,unit:"%",details:"MORE DETAILS"}
+]
+
+
+const fixTimeString = (time) => {
+    return time < 10 ? `0${time}` : time;
+  };
+  
+  const formTimeToString = (time) => {
+    const seconds = time % 60;
+    const minutes = Math.floor(time / 60) % 60;
+    const hours = Math.floor(time / 60 / 60) % 60;
+  
+    const outputString = `${fixTimeString(hours)}:${fixTimeString(
+      minutes
+    )}:${fixTimeString(seconds)}`;
+    return outputString;
+  };
+
+  const Timer = () => {
+    const [timer, setTimer] = useState(0);
+    let ref = useRef(null);
+  
+    useEffect(() => {
+      const cleanup = () => {
+        stopTimer();
+      };
+      return cleanup;
+    }, []);
+  
+    const startTimer = () => {
+        <MainDrawer/>
+
+      if (ref.current !== null) {
+        return;
+      }
+      ref.current = setInterval(() => {
+        setTimer((prevTime) => {
+          if (prevTime <= -1) {
+            clearInterval(ref.current);
+            return 0;
+          }
+          return prevTime + 1;
+        });
+      }, 1000);
+    };
+    const stopTimer = () => {
+      //timer should stop
+      clearInterval(ref.current);
+      ref.current = null;
+    };
+  
+    const resetTimer = () => {
+      console.log("name");
+      //stop the timer
+      stopTimer();
+      //reset it back to default value or 0
+      setTimer(0);
+    };
+  
+    return (
+      <div color={'white'}>
+        <h3 color={'white'}>{formTimeToString(timer)}</h3>
+        <Button  as={FaPlay} onClick={startTimer} ></Button>
+        <Button as={FaStop} onClick={stopTimer}>STOP</Button>
+        <Button as={GrPowerReset} onClick={resetTimer}>RESET</Button>
+      </div>
+    );
+  };
+
+export {Timer}

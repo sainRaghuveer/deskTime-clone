@@ -54,10 +54,17 @@ const SocialButton = ({
   );
 };
 
-const Footer=()=> {
+const MainPageFooter=()=> {
   return (
     <Box
-   
+    bg={"#ebecec"}
+    ml={{ base: 0, md: 60 }}
+    px={{ base: 4, md: 4 }}
+    alignItems="center"
+    // bg={useColorModeValue('white', 'gray.900')}
+    borderBottomWidth="1px"
+    borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+    justifyContent={{ base: 'space-between', md: 'flex-end' }}
     boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'7xl'} py={10}>
@@ -69,47 +76,23 @@ const Footer=()=> {
             <Link href={'#'}>Privacy</Link>
             <Link href={'#'}>Cookies</Link>
             <Link href={'#'}>Affiliate terms</Link>
-            <Link href={'#'}>Download app</Link>
+            <Link href={'#'}>API</Link>
+            
+          </Stack>
+          <Stack align={'flex-start'}>
+            <ListHeader>Resources</ListHeader>
+            <Link href={'#'}>Download App</Link>
             <Link href={'#'}>Pricing</Link>
             <Link href={'#'}>Affiliate</Link>
             <Link href={'#'}>Press</Link>
-            <Link href={'#'}>DivineTime in your language</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Learn more</ListHeader>
-            <Link href={'#'}>All resources</Link>
-            <Link href={'#'}>Employee monitoring guide</Link>
-            <Link href={'#'}>Online employee time clock</Link>
-            <Link href={'#'}>Best time tracking apps</Link>
-            <Link href={'#'}>DivineTime for business</Link>
-            <Link href={'#'}>DivineTime for freelancers</Link>
             <Link href={'#'}>FAQ</Link>
             <Link href={'#'}>Case studies</Link>
             <Link href={'#'}>Webinars</Link>
             <Link href={'#'}>Blog</Link>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Integrations</ListHeader>
-            <Link href={'#'}>All integrations</Link>
-            <Link href={'#'}>Trello</Link>
-            <Link href={'#'}>Basecamp</Link>
-            <Link href={'#'}>Jira</Link>
-            <Link href={'#'}>Asana</Link>
-            <Link href={'#'}>Outlook Calendar</Link>
-            <Link href={'#'}>Google Calendar</Link>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Features</ListHeader>
-            <Link href={'#'}>All features</Link>
-            <Link href={'#'}>Automatic time tracking</Link>
-            <Link href={'#'}>URL & App tracking</Link>
-            <Link href={'#'}>Screenshots</Link>
-            <Link href={'#'}>Project time tracking</Link>
-            <Link href={'#'}>Shift schedule</Link>
-            <Link href={'#'}>Offline time tracking</Link>
-            <Link href={'#'}>Absence calendar</Link>
-            <Link href={'#'}>Mobile app</Link>
-            <Link href={'#'}>Feature request</Link>
+            <Link href={'#'}>Feature requests</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Help center</ListHeader>
@@ -118,7 +101,9 @@ const Footer=()=> {
             <Link href={'#'}>Send us an e-mail</Link>
             <Link href={'#'}>Request In-person training</Link>
             <Link href={'#'}>Open chat</Link>
-            <ListHeader href={'#'}>Phone support</ListHeader>
+          </Stack>
+          <Stack align={'flex-start'}>
+            <ListHeader>Phone support</ListHeader>
             <Link href={'#'}>+1 (315) 6365354</Link>
             <Link href={'#'}>MON-FRI 9:00-22:00 EET</Link>
           </Stack>
@@ -130,7 +115,7 @@ const Footer=()=> {
   );
 }
 
-export default Footer;
+export default MainPageFooter;
 
 const SocialButton_ = ({
   children,
@@ -177,7 +162,7 @@ const FooterFoot=()=> {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
           <HStack>
-        <RouterLink to="/"><Image backgroundColor={"#ebecec"} src="https://i.ibb.co/RS75TMv/Untitled-design.png" boxSize={"38px"}></Image></RouterLink>
+        <RouterLink to="/"><Image backgroundColor={"#ebecec"} src="https://i.ibb.co/0t5G6JR/Untitled-design-removebg-preview.png" boxSize={"38px"}></Image></RouterLink>
         <Text
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}

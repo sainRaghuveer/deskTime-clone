@@ -13,7 +13,9 @@ import {
     AspectRatio,
     Input,
     Button,
-    HStack
+    HStack,
+    Grid,
+    GridItem
   } from '@chakra-ui/react';
   import {
     IoAnalyticsSharp,
@@ -71,23 +73,23 @@ import Navbar from "../Components/Navbar"
         </SimpleGrid>
         <SimpleGrid display={"flex"} justifyContent={"center"} alignItems={"center"} width={"80%"} margin={"auto"}columns={{ base: 1, md: 2 }}>
           <Stack>
-            <HStack columns={{ base: 1, md: 2 }} direction={{base: "row", md: "column"}}>
-              <Box>
+            <Grid templateColumns={{base:"repeat(2, 1fr)",md:"repeat(3, 1fr)",xl:"repeat(4, 1fr)","2xl":"repeat(5, 1fr)"}} gap={6}>
+              <GridItem>
           <Image src='https://desktime.com/static/web/clients/customer-sixt-logo-white.svg'></Image>
-          </Box>
-          <Box>
+          </GridItem>
+          <GridItem>
           <Image src='https://desktime.com/static/web/clients/customer-mapon-logo-white.svg'></Image>
-          </Box>
-          <Box>
+          </GridItem>
+          <GridItem>
           <Image src='https://desktime.com/static/web/clients/customer-montway-logo-white.svg'></Image>
-          </Box>
-          <Box>
+          </GridItem>
+          <GridItem>
           <Image src='https://desktime.com/static/web/clients/customer-onthemap-logo-white.svg'></Image>
-          </Box>
-          <Box>
+          </GridItem>
+          <GridItem>
           <Image src='https://desktime.com/static/web/clients/customer-printful-logo-white.svg'></Image>
-          </Box>
-          </HStack>
+          </GridItem>
+          </Grid>
           </Stack>
         </SimpleGrid>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} marginBottom={"40px"}>
