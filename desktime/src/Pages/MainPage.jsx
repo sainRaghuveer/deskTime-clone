@@ -218,7 +218,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <Avatar
                   size={'sm'}
                   src={
-                    'https://avatars.githubusercontent.com/u/112657812?v=4'
+                    "https://avatars.githubusercontent.com/u/112657812?v=4"
                   }
                 />
                 <VStack

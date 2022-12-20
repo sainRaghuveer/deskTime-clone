@@ -16,7 +16,8 @@ import {
     InputLeftAddon,
     Select,
     Textarea,
-    useDisclosure
+    useDisclosure,
+    InputLabel
   } from '@chakra-ui/react'
 
   import { useState } from "react";
@@ -25,9 +26,12 @@ import { AddIcon } from '@chakra-ui/icons'
 import { Timer } from '../Pages/MainPage'
   function MainDrawer({ handleAddTodo }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [text, setText] = useState("");
+    const [project, setProject] = useState("");
+    const [task, setTask] = useState("");
+    const [des, setDes] = useState("");
 
-    
+
+    console.log(project)
     return (
       <>
         <Button leftIcon={<AddIcon />}  onClick={onOpen}>
@@ -59,14 +63,15 @@ import { Timer } from '../Pages/MainPage'
                   />
                 </Box> */}
                 <Box>
-                  <FormLabel htmlFor='username'>Project</FormLabel>
+                  
                   <Input
                     // ref={firstField}
+                    color={"black"}
                     id='project'
                     placeholder='Project'
                     type="text"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
+                    value={project}
+                    onChange={(e) => setProject(e.target.value)}
                   />
                 </Box>
                 <Box>
@@ -75,6 +80,9 @@ import { Timer } from '../Pages/MainPage'
                     // ref={firstField}
                     id='task'
                     placeholder='Task'
+                    type="text"
+                    value={task}
+                    onChange={(e) => setTask(e.target.value)}
                   />
                 </Box>
   
@@ -95,13 +103,18 @@ import { Timer } from '../Pages/MainPage'
                   <FormLabel htmlFor='owner'>Select Owner</FormLabel>
                   <Select id='owner' defaultValue='Raghuveer Sain'>
                     <option value='segun'>Raghuveer Sain</option>
-                    <option value='kola'>Kola Tioluwani</option>
+                    <option value='kola'>Bitu</option>
                   </Select>
                 </Box>
   
                 <Box>
                   <FormLabel htmlFor='desc'>Description</FormLabel>
-                  <Textarea id='desc' />
+                  <Textarea id='desc' as={"input"}
+                  placeholder='Dscription'
+                  type="text"
+                  value={des}
+                  onChange={(e) => setDes(e.target.value)}
+                  />
                 </Box>
               </Stack>
             </DrawerBody>
@@ -110,7 +123,7 @@ import { Timer } from '../Pages/MainPage'
               <Button bg={"red"} variant='outline' mr={3} onClick={onClose}>
                 DELETE
               </Button>
-              <Button colorScheme='blue' bg={"#4ea819"} onClick={() => handleAddTodo(text)}>UPDATE</Button>
+              <Button colorScheme='blue' bg={"#4ea819"} onClick={() => handleAddTodo(project,task,des)}>UPDATE</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

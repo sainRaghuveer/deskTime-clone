@@ -58,7 +58,8 @@ import {ProductiveApp,UnProductiveApp,NeutralApp,ProductiveGraph,ProductiveCateg
 import {GrPowerReset} from "react-icons/gr"
 import MainDrawer from '../Components/MainDrawer';
 import {Link as RouterLink} from "react-router-dom"
-import { useReducer } from "react";
+
+import ProjectProductiveGraph from '../Contents/ProjectProductiveGraph';
 
 
 const LinkItems = [
@@ -273,7 +274,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
         })
     }
     </Grid>
-    <ProductiveGraph/>
+    <ProjectProductiveGraph/>
     {/* <ProductiveApp/>
     <UnProductiveApp/>
     <NeutralApp/>
@@ -297,7 +298,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
             <ListItem>
                 {/* <ListIcon color={"#5fb92a"} as={FaPlay}></ListIcon> */}
                 <Timer />
-                <Todo/>
+                {/* <Todo/> */}
             </ListItem>
         </List>
     </Box>
@@ -385,61 +386,3 @@ export {Timer}
 
 // import AddTodo from "./AddTodo";
 
-const addTodo = (payload) => ({
-  type: "ADD_TODO",
-  payload
-});
-
-const deleteTodo = (payload) => ({
-  type: "DELETE_TODO",
-  payload
-});
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "ADD_TODO": {
-      return [...state, action.payload];
-    }
-    case "DELETE_TODO": {
-      return state.filter((todo) => todo.id !== action.payload);
-    }
-    default: {
-      return state;
-    }
-  }
-}
-
-function Todo() {
-  //todo list
-  const [state, dispatch] = useReducer(reducer, []);
-
-  const handleAddTodo = (text) => {
-    const newTodo = {
-      id: Math.random() + Date.now() + text,
-      title: text,
-      status: false
-    };
-    //
-    dispatch(addTodo(newTodo));
-  };
-
-  const handleDelete = (id) => {
-    dispatch(deleteTodo(id));
-  };
-
-  return (
-    <>
-      <MainDrawer handleAddTodo={handleAddTodo} />
-      <div>
-        {state.map((todo) => (
-          <div>
-            <li key={todo.id}> {todo.title}</li>
-            <button onClick={() => handleDelete(todo.id)}>DELETE</button>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-
-export  {Todo};
