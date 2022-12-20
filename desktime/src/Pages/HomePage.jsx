@@ -58,7 +58,7 @@ import Navbar from "../Components/Navbar"
               }>
                 <Box>
                 <Input w={"45%"} placeholder={"Your Work Email"}/>
-                <Button w={"45%"} backgroundColor={"#4ea819"} color={"white"} fontSize={"20px"}>Start Free Trial</Button>
+               <RouterLink to="/signup"> <Button w={"45%"} backgroundColor={"#4ea819"} color={"white"} fontSize={"20px"}>Start Free Trial</Button></RouterLink>
                 </Box>
               <Text color={'#475056'} fontSize={'18px'} lineHeight={"8px"}>Try free for 14 days. No credit card required.</Text>
               <Text color={'#475056'} fontSize={'18px'}>By signing up, you agree to our <RouterLink to="#">terms</RouterLink>  and <RouterLink to="#">privacy policy</RouterLink>.</Text>
