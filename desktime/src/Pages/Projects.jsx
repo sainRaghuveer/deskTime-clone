@@ -63,7 +63,7 @@ import ProjectProductiveGraph from '../Contents/ProjectProductiveGraph';
 
 
 const LinkItems = [
-  { name: <RouterLink to="/main"> 'My DivineTime'</RouterLink>, icon: FaDesktop },
+  { name: <RouterLink to="/main"> My DivineTime</RouterLink>, icon: FaDesktop },
   { name: 'Projects', icon: GrProjects },
   { name: 'Work Schedules', icon: AiFillSchedule },
   { name: 'Booking', icon: TbBrandBooking },
