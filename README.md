@@ -29,5 +29,11 @@ deskTime webiste looks very amazing and introduced with various type of language
  </ul>
  
  Homepage is one of the most important factor which also known by the name of Landing Page. There are different kinds of the section is there like Product Search and Login things etc.
- ![Screenshot (318)](https://user-images.githubusercontent.com/107980582/214427377-6b53d58d-e002-496f-a122-78772338c)
+ <img src="https://i.ibb.co/2dpG4Sx/Desktime-project.png" alt="Desktime-project" border="0">
+ 
+  ## Login Page
+ <img src="https://i.ibb.co/bBDSnxJ/Screenshot-795.png" alt="Screenshot-795" border="0">
+ 
+  ## User Can add task and start Timer
+ <img src="https://i.ibb.co/JppRMqR/Screenshot-796.png" alt="Screenshot-796" border="0">
 
